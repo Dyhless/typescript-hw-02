@@ -22,8 +22,24 @@ const page2 = {
 
 
 
-type Book = {
+type Page1 = {
+  title: string;
+  likes: number;
+  accounts: string[];
+  status: string;
+  details: {
+    createAt: Date;
+    updateAt: Date;
+  };
+};
 
-}
+type Page2 = {
+  title: string;
+  likes: number;
+  accounts: string[];
+  status: string;
+};
+
+type Article = Page1 & Page2;
 
 export {};
