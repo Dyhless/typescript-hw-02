@@ -20,4 +20,10 @@ const page2 = {
   status: 'close',
 }
 
+
+
+type Book = {
+
+}
+
 export {};
