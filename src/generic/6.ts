@@ -7,6 +7,31 @@
   Виправте тип у аргументі функції так, щоб не було помилок типу.
 */
 
+// type User = {
+//   name: string;
+//   surname: string;
+//   email: string;
+//   password: string;
+// }
+
+// function createOrUpdateUser(initialValues: Partial<User>): User {
+//   // Оновлення користувача
+//   const defaultUser: User = {
+//     name: 'Dmytro',
+//     surname: 'Medvediev',
+//     email: '',
+//     password: '',
+//   };
+//   return { ...defaultUser, ...initialValues };
+// }
+
+// const newUser = createOrUpdateUser({ email: 'user@mail.com', password: 'password123' });
+
+// export {};
+
+
+//_____________________________2________________________________//
+
 type User = {
   name: string;
   surname: string;
@@ -14,10 +39,21 @@ type User = {
   password: string;
 }
 
-function createOrUpdateUser(initialValues: User) {
-  // Оновлення користувача
+function createOrUpdateUser(currentUser: User, initialValues: Partial<User>): User {
+  return { ...currentUser, ...initialValues };
 }
 
-createOrUpdateUser({ email: 'user@mail.com', password: 'password123' });
+// Приклад існуючого користувача
+const existingUser: User = {
+  name: 'Dmytro',
+  surname: 'Medvediev',
+  email: 'old@mail.com',
+  password: 'oldPassword',
+};
+
+// Оновлення лише email та password
+const updatedUser = createOrUpdateUser(existingUser, { email: 'user@mail.com', password: 'password123' });
+
+console.log(updatedUser);
 
 export {};
